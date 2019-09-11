@@ -1,0 +1,37 @@
+{% extends "crud_system/base.html" %}
+
+{% block title_block %}
+  School Detail
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron container">
+    <h3 class="">School Detail:</h3>
+    <h5>Name: {{detail_con.school_name }}</h5>
+    <h5>Principal: {{detail_con.principal_name }}</h5>
+    <h5>Location: {{detail_con.location }}</h5>
+    <br><br>
+  </div>
+  <div class="container">
+    <a class="btn btn-info" href="{% url 'crud_system:update' pk=detail_con.pk %}">Update School</a>
+    <a class="btn btn-info" href="{% url 'crud_system:delete' pk=detail_con.pk %}">Delete School</a>
+  </div>
+  <br><br>
+
+  <div class="jumbotron container">
+    <h3 class="">Sudents:</h3>
+      <ol>
+        {% for each_student in detail_con.student.all  %}
+          <li> <h5>Name: {{each_student.student_name}}, Roll: {{each_student.roll_number}}</h5> </li>
+        {% endfor %}
+      </ol>
+  </div>
+
+
+</div>
+
+
+
+
+{% endblock %}

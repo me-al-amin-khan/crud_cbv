@@ -1,0 +1,21 @@
+{% extends "crud_system/base.html" %}
+
+{% block title_block %}
+  School Form
+{% endblock %}
+
+{% block body_block %}
+  {% if not form.instance.pk %}
+    <h3>Create School</h3>
+  {% else %}
+    <h3>Update School</h3>
+  {% endif %}
+
+  <div class="container">
+    <form class="form"  method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input class="btn btn-success" type="submit" name="" value="Create School">
+    </form>
+  </div>
+{% endblock %}

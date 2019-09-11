@@ -1,0 +1,16 @@
+{% extends "crud_system/base.html" %}
+
+{% block title_block %}
+  School list
+{% endblock %}
+
+{% block body_block %}
+  <div class="jumbotron">
+    <h1 class="display-3">List of Schools</h1>
+    <ol>
+      {% for school in school_list %}
+        <li> <a href="{{school.id}}"> {{school.school_name}}</a></li>
+      {% endfor %}
+    </ol>
+  </div>
+{% endblock %}
